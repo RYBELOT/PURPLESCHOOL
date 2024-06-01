@@ -1,0 +1,50 @@
+body {
+    background: linear-gradient(180deg, #374151 0%, #111827 100%);
+}
+
+header>a {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.09px;
+    text-align: left;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+header a {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
+    text-align: left;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 38px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+p {
+    font-family: Roboto;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+}
+
+.fontSmall {
+    font-size: 14px;
+}
+.fontMedium {
+    font-size: 16px;
+}
+.fontBig {
+    font-size: 20px;
+}
