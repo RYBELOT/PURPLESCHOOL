@@ -2,35 +2,6 @@ body {
     background: linear-gradient(180deg, #374151 0%, #111827 100%);
 }
 
-header>a {
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21.09px;
-    text-align: left;
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-header a {
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 18.75px;
-    text-align: left;
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-h1 {
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 38px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
 p {
     font-family: Roboto;
     font-weight: 400;
@@ -41,10 +12,77 @@ p {
 
 .fontSmall {
     font-size: 14px;
+    text-align: center;
 }
+
 .fontMedium {
+    width: 708px;
     font-size: 16px;
+    margin: 69px auto;
+
 }
+
 .fontBig {
+    width: 708px;
     font-size: 20px;
+    margin: 69px auto;
+}
+
+nav a {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
+    text-align: left;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+header>a {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.09px;
+    text-align: left;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.frame {
+    margin: 80px 0 0 0;
+    text-align: center;
+}
+
+.search input,
+.search input:focus,
+.search input:active {
+    width: 224px;
+    height: 40px;
+    border-radius: 32px;
+    border: 1px solid rgba(31, 41, 55, 0.6);
+    background: rgba(31, 41, 55, 0.6);
+    font-family: Roboto;
+    font-size: 16px rgba(255, 255, 255, 1);
+}
+
+h1 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 38px;
+    text-align: center;
+    color: #FFFFFF;
+    width: 525px;
+    height: 76px;
+    margin: 14px auto;
+}
+
+.aboutME {
+    margin: 30px auto;
+}
+
+.Image {
+    margin: 28px auto;
+    width: 896px;
+    height: 594px;
 }
