@@ -1,0 +1,28 @@
+main {
+    background-color: #F39494;
+}
+h1 {
+    color: #333333;
+    font-family: 'Open Sans', monospace;
+    font-size: 36;
+}
+p {
+    color: #666666;
+    font-family: 'Open Sans', monospace;
+    font-size: 16;
+}
+a {
+    color: #089FE0;
+    font-family: 'Open Sans', monospace;
+    font-size: 18;
+}
+input {
+    background-color: #F5F5F5;
+    font-family: 'Open Sans', monospace;
+    font-size: 16;
+    font-style: italic;
+}
+button {
+    background-color: #089FE0;
+    font-family: 'Open Sans', monospace;
+}
