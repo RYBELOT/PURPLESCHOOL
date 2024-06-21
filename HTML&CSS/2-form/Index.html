@@ -10,27 +10,33 @@
 
 <body>
     <main>
-        <form action="#">
-            <div>
+        <div class="container">
+            <form action="#">
                 <h1>Регистрация</h1>
-                <p>Уже есть аккаунт? <a href="#">Войти</a></p>
-            </div>
-            <div>
-                <input type="text" placeholder="Моя компания">
-                <input type="text" placeholder="Имя">
-                <input type="text" placeholder="Фамилия">
-            </div>
-            <div>
-                <input type="email" placeholder="E-mail">
-            </div>
-            <div>
-                <button type="submit">Зарегистрироваться</button>
-            </div>
-            <div>
-                <input type="checkbox" name="agree" id="agree">
-                <label for="checkbox">Я прочитал и принимаю <a href="#">Условия использования</a></label>
-            </div>
-        </form>
+                <div class="SubTitle">
+                    <p>Уже есть аккаунт? <a href="#">Войти</a></p>
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="Моя компания" class="inputCompany">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="Имя">
+                    <input type="text" placeholder="Фамилия">
+                </div>
+                <div class="field">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="field">
+                    <button type="submit">
+                        Зарегистрироваться
+                    </button>
+                </div>
+                <div class="Terms">
+                    <input type="checkbox" name="agree" id="agree">
+                    <label for="checkbox">Я прочитал и принимаю <a href="#">Условия использования</a></label>
+                </div>
+            </form>
+        </div>
     </main>
 </body>
 
