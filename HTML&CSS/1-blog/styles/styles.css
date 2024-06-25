@@ -2,48 +2,49 @@ body {
     background: linear-gradient(180deg, #374151 0%, #111827 100%);
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.blog {
+    font-size: 21px;
+    margin: 80px;
+}
+
+nav>ul {
+    display: flex;
+    gap: 40px;
+    margin: 81px auto;
+}
+
 p {
-    font-family: Roboto;
-    line-height: 28px;
-    text-align: left;
-    color: rgba(255, 255, 255, 1);
-}
-
-.fontSmall {
-    margin: 80px 0 0 0;
-    text-align: center;
-    opacity: 60%;
-    font-size: 14px;
-}
-
-.fontMedium {
-    width: 708px;
-    font-size: 16px;
-    margin: 69px auto;
-
-}
-
-.fontBig {
-    width: 708px;
-    font-size: 20px;
-    margin: 69px auto;
-}
-
-nav a {
+    max-width: 708px;
+    margin: 34px auto;
     font-family: Roboto;
     font-size: 16px;
     font-weight: 400;
-    line-height: 18.75px;
     text-align: left;
     color: #FFFFFF;
-    text-decoration: none;
 }
 
-nav ul {
+span {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    color: #FFFFFF;
+    opacity: 60%;
+}
+
+ul {
     list-style: none;
 }
 
-header>a {
+a {
     font-family: Roboto;
     font-size: 18px;
     font-weight: 400;
@@ -53,11 +54,51 @@ header>a {
     text-decoration: none;
 }
 
-.footer {
-    margin: 80px 0 0 0;
+a > img {
+    padding: 6px 12px;
+    background-image: url(../Images/Rectangle\ 2.png);
+}
+
+h1 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 38px;
     text-align: center;
-    opacity: 60%;
-    font-size: 16px;
+    color: #FFFFFF;
+    max-width: 525px;
+    margin: 14px auto;
+    margin-bottom: 30px;
+}
+
+footer>p {
+    text-align: center;
+}
+
+main>p {
+    text-align: center;
+    margin: 14px auto;
+}
+
+.Big {
+    font-size: 20px;
+}
+
+.Image {
+    max-width: 896px;
+    margin: 28px auto;
+}
+
+.aboutMe {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.aboutMe p {
+    text-align: left;
+    line-height: 25px;
+    margin: 0 auto;
 }
 
 .search input,
@@ -70,26 +111,7 @@ header>a {
     background: rgba(31, 41, 55, 0.6);
     font-family: Roboto;
     font-size: 16px rgba(255, 255, 255, 1);
-}
-
-h1 {
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 38px;
-    text-align: center;
-    color: #FFFFFF;
-    width: 525px;
-    height: 76px;
-    margin: 14px auto;
-}
-
-.aboutME {
-    margin: 30px auto;
-}
-
-.Image {
-    margin: 28px auto;
-    width: 896px;
-    height: 594px;
+    background-image: url(../Images/search.svg);
+    background-repeat: no-repeat;
+    background-position: left;
 }
