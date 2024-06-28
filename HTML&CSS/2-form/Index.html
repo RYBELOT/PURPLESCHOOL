@@ -7,36 +7,29 @@
     <title>Register</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <main>
         <div class="container">
             <form action="#">
-                <h1>Регистрация</h1>
-                <div class="SubTitle">
+                <div class="title">
+                    <h1>Регистрация</h1>
                     <p>Уже есть аккаунт? <a href="#">Войти</a></p>
                 </div>
+                <input type="text" placeholder="Моя компания" class="inputCompany">
                 <div class="field">
-                    <input type="text" placeholder="Моя компания" class="inputCompany">
+                    <input type="text" name="firstname" placeholder="Имя">
+                    <input type="text" name="surname" placeholder="Фамилия">
                 </div>
-                <div class="field">
-                    <input type="text" placeholder="Имя">
-                    <input type="text" placeholder="Фамилия">
-                </div>
-                <div class="field">
-                    <input type="email" placeholder="Email">
-                </div>
-                <div class="field">
-                    <button type="submit">
-                        Зарегистрироваться
-                    </button>
-                </div>
+                <input type="email" placeholder="Email">
+                <button type="submit">Зарегистрироваться</button>
                 <div class="Terms">
-                    <input type="checkbox" name="agree" id="agree">
-                    <label for="agree">Я прочитал и принимаю <a href="#">Условия использования</a></label>
+                    <input type="checkbox" name="checkbox" id="agree">
+                    <label for="checkbox">Я прочитал и принимаю <a href="#">Условия использования</a></label>
                 </div>
             </form>
         </div>
