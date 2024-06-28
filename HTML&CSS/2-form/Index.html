@@ -6,31 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <main>
-        <form action="#">
-            <div>
-                <h1>Регистрация</h1>
-                <p>Уже есть аккаунт? <a href="#">Войти</a></p>
-            </div>
-            <div>
-                <input type="text" placeholder="Моя компания">
-                <input type="text" placeholder="Имя">
-                <input type="text" placeholder="Фамилия">
-            </div>
-            <div>
-                <input type="email" placeholder="E-mail">
-            </div>
-            <div>
+        <div class="container">
+            <form action="#">
+                <div class="title">
+                    <h1>Регистрация</h1>
+                    <p>Уже есть аккаунт? <a href="#">Войти</a></p>
+                </div>
+                <input type="text" placeholder="Моя компания" class="inputCompany">
+                <div class="field">
+                    <input type="text" name="firstname" placeholder="Имя">
+                    <input type="text" name="surname" placeholder="Фамилия">
+                </div>
+                <input type="email" placeholder="Email">
                 <button type="submit">Зарегистрироваться</button>
-            </div>
-            <div>
-                <input type="checkbox" name="agree" id="agree">
-                <label for="checkbox">Я прочитал и принимаю <a href="#">Условия использования</a></label>
-            </div>
-        </form>
+                <div class="Terms">
+                    <input type="checkbox" name="checkbox" id="agree">
+                    <label for="checkbox">Я прочитал и принимаю <a href="#">Условия использования</a></label>
+                </div>
+            </form>
+        </div>
     </main>
 </body>
 
