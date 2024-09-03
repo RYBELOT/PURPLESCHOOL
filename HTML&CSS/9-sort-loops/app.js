@@ -1,17 +1,25 @@
-let arr = [10, 40, -5, 10, 0];
+let array = [10, 40, -5, 10, 0];
 
-console.log(sort(arr))
+console.log(`Исходный массив ${array}`);
+console.log(`Отсортирован по возрастанию ${sortArray(array)}`);
+console.log(`Отсортирован по убыванию ${sortArray(array, true)}`);
 
-function sort(arr) {
-    result = [];
-    for (let i of arr) {
-        let indx = 0;
-        for (let j of arr) {
-            if (i < j) {
-                indx++;
+function orderTemplate(firstElement, secondElement, isReverse) {
+    if (isReverse) {
+       return firstElement < secondElement
+    } else {
+       return firstElement > secondElement;
+    }
+}
+
+function sortArray(array, isReverse) {
+    let elements = array;
+    for (let i = 0; i < elements.length; i++) {
+        for (let j = i; j < elements.length; j++) {
+            if (orderTemplate(elements[i], elements[j], isReverse)) {
+                [elements[i], elements[j]] = [elements[j], elements[i]];
             }
         }
-        result.splice(indx, 0, i);
     }
-    return result;
+    return elements;
 }
