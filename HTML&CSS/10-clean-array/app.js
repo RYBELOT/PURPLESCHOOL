@@ -12,4 +12,4 @@ function cleaner(arr, checker){
     return result;
 }
 
-console.log(cleaner(arr, checker));
+console.log(`Вводный массив: ${arr} обработанный: ${cleaner(arr, checker)}`);
