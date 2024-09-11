@@ -1,36 +1,59 @@
-let data = ["01-01-22", "02.02.2321", 123, "34-05-12", "12-24-48", "test"];
+let data = ["01.02.2003", "02/01/2003", "1.2.2003", "11.2.2003", "1.12.2003", "2/11/2003", "12/1/2003", "2/1/2003"];
 
 console.log(filterDate(data));
 
-function filterDate(incomungArray) {
+function filterDate(incArray) {
     let result = [];
-    for (let str of incomungArray) {
-        let year;
-        let month;
-        let monthlim;
-        let day;
-        if (str.length === 8 || str.length === 10 && str[0] >= 0 &&
-            str[1] >= 0 && str[3] >= 0 && str[4] >= 0 && str[6] >= 0 &&
-            str[7] >= 0 && !(str[2] >= 0) && !(str[5] >= 0)) { // Шаблон по которому проверяем элемент-строку 
-            if (str[8] >= 0 && str[9] >= 0) { //проверяем пришел год в ХХ или ХХХХ формате и берем нужное
-                year = str[8] + str[9];
-            } else {
-                year = str[6] + str[7];
+    for (let string of incArray) {
+        let separator = validateString(string);
+        if (separator) {
+            let [day, month, year] = string.split(separator);
+            if (separator === '/') {
+                [day, month] = [month, day];
             }
-                month = str[3] + str[4];
-            if (month == '01' || month == '03' || month == '05' || month == '07' || month == '08' || month == '10' || month == '12') {
-                monthlim = 31; // проверили сколько дней в месяце должно быть
-            } else if (month == '02') {
-                year % 4 === 0 ? monthlim = 29 : monthlim = 28; //проверяем високосный ли год
-            } else if (month < 12) {
-                monthlim = 30; // проверили сколько дней в месяце должно быть
-            }
-            day = str[0] + str[1];
-            if (month <= 12 && day <= monthlim) { // последние проверки месяц <= 12 b дней меньше или равно положенному
+            if (validateResult(year, month, day)) {
+                day.length === 1 ? day = "0" + day : day;
+                month.length === 1 ? month = "0" + month : month;
+                year.length < 4 ? year = year * 1 + 2000 : year;
                 result.push(`${day}-${month}-${year}`);
             }
+        } else {
         }
     }
-    return result;
+    return result
 }
 
+function validateString(incString) {
+    if (typeof incString === 'string' && incString.length >= 8 && incString.length <= 10) {
+        let seps = Array.from(incString).filter((s) => isNaN(s * 1));
+        if (seps.length === 2 && seps[0] === seps[1]) {
+            if (seps.includes('.') || seps.includes(':') || seps.includes('-') || seps.includes('/')) {
+                return seps[0];
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+function validateResult(incYear, incMonth, incDay) {
+    let monthLimit = 0;
+    if (incYear % 4 === 0 && incMonth === '02') {
+        monthLimit = 29;
+    } else if (incMonth === '02') {
+        monthLimit = 28;
+    } else if ((incMonth % 2 != 0 && incMonth < 8) || (incMonth % 2 === 0 && incMonth > 8 && incMonth <= 12)) {
+        monthLimit = 31;
+    } else if ((incMonth % 2 === 0 && incMonth < 8) || (incMonth % 2 != 0 && incMonth > 8 && incMonth <= 12)) {
+        monthLimit = 30;
+    }
+    if (monthLimit != 0 && incDay <= monthLimit) {
+        return true
+    } else {
+        return false
+    }
+}

@@ -1,11 +1,11 @@
 let arr = [1,2,3,4,5,6,7,8,9];
 
-let checker = (num) => num % 2 === 0 ? true : false;
+let checker = (num) => num % 2 === 0;
 
-function cleaner(arr, checker){
+function cleaner(data, condition){
     let result = [];
-    for(let elem of arr){
-        if(checker(elem)){
+    for(let elem of data){
+        if(condition(elem)){
             result.push(elem)
         } 
     }
