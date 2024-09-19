@@ -81,7 +81,7 @@ let toDo = {
       output(sArray);
       return 1
     } else if (param == '2') {
-      this.tasks.sort((a, b) => a.priority - b.priority).reverse().forEach((el => sArray.push(el)));
+      this.tasks.sort((a, b) => b.priority - b.priority).forEach((el => sArray.push(el)));
       output(sArray);
       return 2
     } else {
