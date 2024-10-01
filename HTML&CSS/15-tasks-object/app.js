@@ -1,97 +1,83 @@
 let toDo = {
   tasks: [],
-  chooseAction() {
-    let toDo = prompt("1 - создать 2 - редактировать 3 - удалить 4 - упорядочить по приоритету 5 - выйти", "1");
-    switch (toDo) {
-      case '1':
-        console.log(this.addTask());
-        return this.chooseAction();
-      case '2':
-        console.log(this.editTask());
-        return this.chooseAction();
-      case '3':
-        console.log(this.delTask());
-        return this.chooseAction();
-      case '4':
-        console.log(this.sortTask(this.tasks));
-        return this.chooseAction();
-      case '5':
+  addTask(title, priority) {
+    const check = function (title, priority) {
+      if (!isNaN(priority) && priority >= 1 && priority <= 9 && typeof title === "string") {
         return true
-      default:
-        console.log("действие не поддерживается");
-        return this.chooseAction();
-    }
-  },
-  addTask() {
-    let id = this.tasks.length + 1;
-    let title = prompt("Введите описание задачи", "Задание");
-    let priority = prompt("Введите приоритет в виде цифры", "1");
-    if (!isNaN(priority) && priority >= 1 && priority <= 9) {
+      } else {
+        console.log("Приоритет должен быть цифрой, а описание - строкой")
+        return false;
+      }
+    };
+    const output = function (isTrue, arr) {
+      if (isTrue, arr) {
+        arr.forEach((task) => console.log(`id:${task.id} Описание:${task.title} Приоритет:${task.priority}`));
+        return true;
+      } else {
+        console.log("проверьте введеные данные");
+        return false;
+      }
+    };
+    if (check(title, priority)) {
+      let id = this.tasks.length + 1;
       this.tasks.push({
         id: id,
         title: title,
         priority: priority
       });
-      this.tasks.forEach((task) => console.log(`id:${task.id} Описание:${task.title} Приоритет:${task.priority}`));
-      return true
+      return output(true, this.tasks);
     } else {
-      console.log("приоритет должен быть цифрой от 1 до 9");
-      return false
+      return output(false, this.tasks);
     }
   },
-  editTask() {
-    let id = prompt("Введите id задачи", "1");
-    if (!isNaN(id) && id >= 0 && id <= this.tasks.length) {
-      let newTitle = prompt("Новое описание задачи", "Задание");
-      let newPriority = prompt("Новый приоритет в виде цифры", "1");
-      if (!isNaN(newPriority) && newPriority >= 1 && newPriority <= 9) {
-        let req = {
-          id: id,
-          title: newTitle,
-          priority: newPriority
-        };
-        this.tasks.splice(id - 1, 1, req);
-        this.tasks.forEach((task) => console.log(`id:${task.id} Описание:${task.title} Приоритет:${task.priority}`));
-        return true
+
+  updateTask(id, title, priority) {
+    const isId = function (id, arr) {
+      if (!isNaN(id) && arr.filter((el) => el.id === id)) {
+        return true;
       } else {
-        console.log("приоритет должен быть цифрой от 1 до 9");
-        return false
+        console.log("Такого id не существует");
+        return false;
       }
+    }
+    if (isId(id, this.tasks) && this.addTask.check(title, priority)) {
+      let req = {
+        id: id,
+        title: title,
+        priority: priority
+      };
+      tasks.splice(this.tasks.indexOf((el) => el.id === id), 1, req);
+      return this.addTask.output(true, this.tasks);
     } else {
-      console.log("Задача с таким id не найдена");
-      return false
+      return this.addTask.output(false, this.tasks);
     }
   },
-  delTask() {
-    let id = prompt("Введите id задачи", "1");
-    if (!isNaN(id) && id >= 0 && id <= this.tasks.length) {
-      this.tasks.splice(id - 1, 1);
-      this.tasks.forEach((task) => console.log(`id:${task.id} Описание:${task.title} Приоритет:${task.priority}`));
-      return true
+
+  deleteTask(id) {
+    if (this.updateTask.isId(id)) {
+      tasks.splice(this.tasks.indexOf((el) => el.id === id), 1);
+      return this.addTask.output(true, this.tasks);
     } else {
-      console.log("Задача с таким id не найдена");
-      return false
+      return this.addTask.output(false, this.tasks);
     }
   },
-  sortTask() {
-    let param = prompt("1 - по возрастанию 2 - по убыванию");
-    let sArray = [];
-    if (param == '1') {
-      this.tasks.sort((a, b) => a.priority - b.priority).forEach((el => sArray.push(el)));
-      output(sArray);
-      return 1
-    } else if (param == '2') {
-      this.tasks.sort((a, b) => b.priority - b.priority).forEach((el => sArray.push(el)));
-      output(sArray);
-      return 2
+
+  sortTask(order) {
+    if (order === 0 || order === 1) {
+      let sArr = [];
+      order === 0 ? sArr = this.tasks.sort((a, b) => a.priority < b.priority) : sArr = this.tasks.sort((a, b) => a.priority > b.priority);
+      return this.addTask.output(true, sArr);
     } else {
-      console.log("неверные параметры")
-      return false;
+      console.log("0 - по убыванию, 1 - по возрастанию");
+      return this.addTask.output(false, this.tasks);
     }
-    function output(arr) {
-      arr.forEach((el) => console.log(`id:${el.id} Описание:${el.title} Приоритет:${el.priority}`));
-    }
-  }
+  },
 }
 
-console.log(toDo.chooseAction());
+console.log(toDo.addTask("протестить код", 5));
+console.log(toDo.addTask("дважды протестить код", 6));
+console.log(toDo.addTask("трижды код", 4));
+console.log(toDo.addTask("под редактирование", 3));
+console.log(toDo.addTask("под удаление", 8));
+console.log(toDo.updateTask( 4, "редактированное", 9));
+
