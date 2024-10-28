@@ -1,72 +1,69 @@
 let toDo = {
-  tasks: [{id:2, title:"test1" , priority:20},{id:4, title:"test2", priority:20}],
-  isValid(title, priority) {
-    if (!title || !priority) {
-      console.log('Проверьте заголовок и приоритет');
+  tasks: [],
+  isValid(incData) {
+    if (!incData) {
+      console.log('Не могу работать с пустыми данными');
       return false;
-    } else if (typeof title === 'string' && priority > 0 && priority <= 9) {
+    } else if (typeof incData === 'object') {
       return true;
     } else {
       console.log('Заголовок должен быть строкой, а приоритет от 1 до 9');
       return false;
     }
   },
-  isIdIndx(id){
-    let result = this.tasks.findIndex((task) => task.id === id);
-    if(result === -1){
-      console.log (`Задача с id ${id} не существует`);
+  isIdIndx(id) {
+    let result = this.tasks.find((task) => task.id === id);
+    if (!result) {
+      console.log(`Задача с id ${id} не существует`);
       return false;
-    }else{
+    } else {
       return result;
     }
   },
-  addTask(title, priority) {
-    if(!this.tasks){
+  addTask(incData) {
+    if (!this.tasks) {
       this.tasks = [];
     }
-    if (!this.isValid) {
-      return this.isValid
+    if (!this.isValid(incData)) {
+      return this.isValid(incData)
     } else {
       this.tasks.push({
-        id: this.lastId() + 1,
-        title: title,
-        priority: priority
+        ...incData,
+        id: ++this.lastId
       });
       return this.tasks;
     }
   },
-  updateTask(id,title,priority) {
-    if (this.isIdIndx(id) = -1){
+  updateTask(id, incData) {
+    if (!this.isIdIndx(id)) {
       return this.isIdIndx(id);
     } else {
-      let indx = this.isIdIndx(id);
-      let data = {
-        title: title,
-        priority: priority
+      if (!incData.title) {
+        console.log('Не могу заменить title на пустое значение');
       }
-      Object.assign(this.tasks[indx], data);
-      return this.tasks
+      else if (!incData.priority) {
+        console.log('Не могу заменить priority на пустое значение');
+      } else {
+        const task = this.isIdIndx(id)
+        Object.assign(task, incData);
+        return this.tasks
+      }
     }
   },
   deleteTask(id) {
-    if (this.isIdIndx(id)){
-      this.tasks.splice(this.isIdIndx(id), 1);
-      return this.tasks;
+    const task = this.isIdIndx(id);
+    if (this.isIdIndx(id)) {
+      return this.tasks.filter((f) => f.id != task.id);
     } else {
       return isIdIndx(id);
     }
   },
-  sortTask(sortField){
-    if(sortField === "id"){
-      return this.tasks.sort((task1, task2) => task1.id - task2.id);
-    }
-    if(sortField === "priority"){
+  sortTask() {
       return this.tasks.sort((task1, task2) => task2.priority - task1.priority);
-    }
   },
-  lastId(){
-    return this.sortTask("id")[this.tasks.length - 1].id;
-  }
+  lastId: 0
 }
+
+
 
 
