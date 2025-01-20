@@ -1,11 +1,9 @@
 'use strict';
 
 function birthday(data) {
-    let now = new Date();
-    let userBirthday = new Date(data);
-    let userAge = Number(now - userBirthday);
-    let validateAge = 14*1000*60*60*24*365.242;
-    return userAge > validateAge;
+    let birthdayUser = new Date(data);
+    let userAge = new Date(birthdayUser.getFullYear()+14, birthdayUser.getMonth(), birthdayUser.getDate());
+    return userAge <= Date.now();
 }
 
-console.log(birthday('2015-07-05'));
+console.log(birthday('2010-07-05'));
