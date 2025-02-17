@@ -25,8 +25,7 @@ class HourBilling extends Billing {
     }
 
     calculateTotal (){
-        this.amount = this.amount * this.hours;
-        return this.amount;
+        return super.calculateTotal() * this.hours;
     } 
 }
 
@@ -37,8 +36,7 @@ class ItemBilling extends Billing {
     }
 
     calculateTotal (){
-        this.amount = this.amount * this.items;
-        return this.amount;
+        return super.calculateTotal() * this.items;
     } 
 }
 

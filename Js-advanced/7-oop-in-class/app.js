@@ -62,12 +62,10 @@ class Ork extends Character {
     }
 
     receiveDamage(damage){
-        if(this.#health > damage){
-            this.#health = this.#health - damage;
-            return
-        }else{
+        if(this.#health <= damage){
             return 'Орк убит!'
         }
+        this.#health = this.#health - damage;
     }
 
     hit(enemy){
@@ -104,14 +102,12 @@ class Elf extends Character {
     }
 
     addMagic(enemy){
-        if(this.#magicPower > this.weapon.magicPrice){
-            this.weapon.spell(enemy);
-            this.#magicPower = this.#magicPower - this.weapon.magicPrice;
-            return this.speak()
-        } else {
+        if(this.#magicPower <= this.weapon.magicPrice){
             return `Недостаточно манны!`
         }
-
+        this.weapon.spell(enemy);
+        this.#magicPower = this.#magicPower - this.weapon.magicPrice;
+        return this.speak();
     }
 }
 
